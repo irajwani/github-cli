@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+  redis:
+    container_name: redis
+    image: redis:latest
+    env_file:
+      - docker.env
+    environment:
+      - REDIS_PORT=6379
+    ports:
+      - 6379:6379
+  db:
+    build:
+      context: ./
+      dockerfile: db.Dockerfile
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+#   main:
+#     container_name: main
+#     build:
+#       context: .
+#       target: dev
+#     volumes:
+#       - .:/usr/src/app
+#       - /usr/src/app/node_modules
+#     env_file:
+#       - docker.env
+#     ports:
+#       - ${PORT}:${PORT}
+#     networks:
+#       - webnet
+#     depends_on:
+#       - db
+#     command: npm run start:dev
+# networks:
+#   webnet:

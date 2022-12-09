@@ -10,11 +10,11 @@
     "allowJs": true,
     "target": "es2017",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./bin",
     "baseUrl": "./",
     "rootDir": "src",
     "strict": true,         
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "resolveJsonModule": true,
     "incremental": true,
     "skipLibCheck": true
